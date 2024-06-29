@@ -1,0 +1,589 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+:root {
+    --white: #f7f7f7;
+    --black: #000814;
+    --color-1: #ffd60a;
+    --color-3: #003566;
+    --color-5: rgba(0, 8, 20, 0.5);
+    --border-R: 6px;
+    --shadow: -3px 3px 10px -5px rgba(0,0,0,0.75);
+    --line-H: 1.4;
+    --smooth: .2s linear;
+}
+
+* {
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--black);
+    font-family: Tahoma, Arial;
+    color: var(--white);
+
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-1);
+    border-radius: var(--border-R);
+}
+
+.container {
+    padding: 10px 2rem;
+}
+
+.toggle-btn {
+    display: none;
+    background-color: var(--color-1);
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--black);
+    border-radius: var(--border-R);
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    text-align: center;
+    line-height: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.main-btn {
+    position: relative;
+    height: 35px;
+    width: 120px;
+    text-align: center;
+    line-height: 32px;
+    border: 1px solid var(--color-1);
+    border-radius: 20px 5px;
+    cursor: pointer;
+    transition: var(--smooth);
+    overflow: hidden;
+    z-index: 1;
+}
+.main-btn::before {
+    content: "";
+    width: 0;
+    height: 100%;
+    background-color: var(--color-1);
+    border-radius: 20px 5px;
+    transition: var(--smooth);
+    position: absolute;
+    top: 0; right: 0;
+    z-index: -1;
+}
+.main-btn:hover::before {
+    width: 100%;
+    left: 0;
+}
+.main-btn:hover {
+    color: var(--black);
+}
+
+.main-title {
+    padding: 1.5rem;
+    text-align: center;
+
+    & span {
+        color: var(--color-1);
+    }
+}
+
+.main-box {
+    padding-bottom: 2rem;
+
+    .box {
+        background-color: var(--color-5);
+        padding: 1rem;
+        border: 1px solid;
+        border-radius: var(--border-R);
+        box-shadow: var(--shadow);
+    }
+}
+
+header {
+    height: 4rem;
+    width: 90%;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding-inline: 2rem;
+    border-radius: var(--border-R);
+    z-index: 100;
+
+    & nav {
+        
+        & a { 
+            color: var(--white);
+            transition: var(--smooth);
+        }
+        & a:not(:last-child) {
+            margin-right: 10px;
+        }
+        & a:hover {
+            color: var(--color-1);
+        }
+    }
+}
+header.act {
+    background-color: var(--color-5);
+    box-shadow: var(--shadow);
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background: url(/images/home/land-1.jpg) no-repeat;
+    background-size: 100% 100%;
+
+    .box {
+        width: 25rem;
+        background-color: var(--color-5);
+        padding: 10px;
+        border-radius: var(--border-R);
+    
+        & h1 {
+            
+            & span {
+                display: block;
+                color: var(--color-1);
+            }
+        }
+    
+        & p {
+            margin: 1rem 0;
+            line-height: var(--line-H);
+        }
+    }
+}
+
+.features {
+    background: url(/images/features/features.png) no-repeat;
+    background-size: 100% 100%;
+
+    .main-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        justify-content: center;
+        gap: 1rem;
+        text-align: center;
+    
+        .box {
+    
+            & img {
+                width: 170px;
+            }
+    
+            & h3 {
+                margin: 10px 0;
+            }
+    
+            & p {
+                line-height: var(--line-H);
+            }
+        }
+    }
+}
+
+.about-us {
+    background: url(/images/about-us/about-us.png) no-repeat;
+    background-size: 100% 100%;
+
+    .main-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 20rem);
+        justify-content: center;
+        gap: 2rem;
+    
+        & img {
+            margin: auto;
+        }
+        
+        & .box {
+            max-width: 24rem;
+            height: fit-content;
+            text-align: center;
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+        
+            & p {
+                line-height: var(--line-H);
+            }
+        
+            .main-btn {
+                margin: 1rem auto;
+            }
+        }
+    }
+}
+
+.top-games {
+    background: url(/images/top-games/wave-haikei.png) no-repeat;
+    background-size: 100% 100%;
+
+    .main-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 15rem);
+        justify-content: center;
+        gap: 2rem;
+
+        .box {
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--smooth);
+
+            & img {
+                width: 100%;
+            }
+        }
+        .box:hover:before {
+            content: "Play now";
+            background-color: var(--color-5);
+            width: 100%;
+            height: 100%;
+            font-weight: bold;
+            text-align: center;
+            line-height: 421px;
+            position: absolute;
+            top: 0;
+        }
+        .box:hover {
+            transform: scale(104%);
+        }
+    }
+
+    .info-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 15rem);
+        justify-content: center;
+        gap: 2rem;
+        background-color: var(--color-5);
+        padding: 2rem 0;
+
+        .box {
+            text-align: center;
+
+            & h3 {
+                margin-top: 8px;
+            }
+        }
+        .box:not(:last-child) {
+            border-right: 1px solid;
+        }
+    }
+}
+
+.our-prices {
+    background: url(/images/our-prices/wave-haikei.png) no-repeat;
+    background-size: 100% 100%;
+
+    .main-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        justify-content: center;
+        gap: 2rem;
+
+        .box {
+
+            .price {
+                margin: 10px 0;
+                text-align: center;
+
+                & b {
+                    font-size: 24px;
+                    color: var(--color-1);
+                }
+            }
+
+            & span {
+                display: block;
+                background-color: var(--color-3);
+                padding: 8px 0;
+                text-align: center;
+                border-radius: var(--border-R);
+            }
+
+            .abilities {
+                padding: 0;
+                list-style: none;
+
+                & li:not(:last-child) {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+}
+
+.frequently {
+    background: url(/images/frequently/wave-haikei.png) no-repeat;
+    background-size: 100% 100%;
+
+    .main-box {
+        
+        .box {
+            max-width: 47rem;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: var(--smooth);
+
+            & div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            & p {
+                display: none;
+                margin-top: 1rem;
+                line-height: var(--line-H);
+            }
+        }
+        .box:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+        .box.act p {
+            display: block;
+        }
+    }
+}
+
+.contact-us {
+    background: url(/images/contact-us/blob-scene-haikei.png) no-repeat;
+    background-size: 100% 100%;
+
+    .main-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 15rem);
+        justify-content: center;
+        gap: 2rem;
+
+        .box {
+            text-align: center;
+
+            & span:not(:last-child) {
+                display: block;
+                margin: 6px 0;
+            }
+        }
+    }
+}
+
+.get-in-touch {
+    background: url(/images/get-in-touch/blob-haikei.png) no-repeat;
+    background-size: 100% 100%;
+
+    .main-box {
+
+        .inputs-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            & input,
+            & textarea {
+                width: 40%;
+                background-color: var(--color-5);
+                padding: 1rem;
+                color: var(--color-1);
+                outline: none;
+                border: 1px solid var(--white);
+                border-radius: var(--border-R);
+            }
+            & input::placeholder,
+            & textarea::placeholder {
+                color: var(--white);
+            }
+            & input:hover::placeholder,
+            & input:focus::placeholder,
+            & textarea:hover::placeholder,
+            & textarea:focus::placeholder {
+                opacity: 0;
+                transition: var(--smooth);
+            }
+            & textarea {
+                min-height: 8rem;
+                resize: none;
+            }
+        }
+
+        .main-btn {
+            margin: 1rem auto 0;
+        }
+    }
+}
+
+footer {
+
+    .main-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        justify-content: center;
+        gap: 2rem;
+
+        .box {
+            border: none;
+            border-radius: 0;
+
+            & h3 {
+                color: var(--color-1);
+            }
+
+            & a:not(.icons a) {
+                display: block;
+                width: fit-content;
+                margin-top: 8px;
+                color: var(--white);
+            }
+            & a:not(.icons a):hover {
+                color: var(--color-1);
+            }
+        }
+        .box:nth-child(2) {
+            text-align: center;
+
+            & p {
+                margin: 8px 0;
+                line-height: var(--line-H);
+            }
+
+            .icons {
+
+                & a:not(:last-child) {
+                    margin-right: 8px;
+                }
+
+                & i {
+                    width: 30px;
+                    height: 30px;
+                    font-size: 20px;
+                    line-height: 30px;
+                    background-color: var(--color-1);
+                    color: var(--color-3);
+                    border-radius: 50%;
+                }
+            }
+        }
+        .box:nth-child(3) {
+            text-align: end;
+
+            & a {
+                margin-left: auto;
+            }
+        }
+    }
+
+    .my-info {
+        padding: 8px 0;
+        border-top: 1px solid var(--color-3);
+        text-align: center;
+
+        & i {
+            color: var(--color-1);
+        }
+    }
+}
+
+/* Start responsive */
+@media (max-width: 768px) {
+
+    .container .toggle-btn {
+        display: block;
+    }
+
+    header {
+        padding-inline: 1rem;
+
+        & h2 {
+            font-size: 18px;
+        }
+
+        & nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 10px;
+            position: fixed;
+            left: -50rem;
+            top: 0;
+            background-color: var(--black);
+            height: 100vh;
+            width: 100%;
+            z-index: 80;
+            transition: var(--smooth);
+    
+            & a {
+                font-size: 1.5rem;
+            }
+            & a:not(:last-child) {
+                margin: 0;
+            }
+        }
+    }
+    header nav.act {
+        left: 0;
+    }
+
+    .home {
+        align-items: start;
+
+        .box {
+            margin-top: 4rem;
+    
+            & h1 {
+                font-size: 20px;
+            }
+    
+            & p {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .top-games .info-box .box:not(:last-child) {
+        border: none;
+        border-bottom: 1px solid;
+    }
+    .info-box .box h3 {
+        margin-bottom: 8px;
+    }
+
+    .our-prices .main-box .box {
+        text-align: center;
+
+        .main-btn {
+            margin: auto;
+        }
+    }
+
+    .get-in-touch .main-box .inputs-box input,
+    .get-in-touch .main-box .inputs-box textarea {
+        width: 100%;
+    }
+    
+}
+/* End responsive */
